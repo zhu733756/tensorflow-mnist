@@ -31,9 +31,11 @@ import time
 import numpy
 from six.moves import urllib
 from six.moves import xrange  # pylint: disable=redefined-builtin
-import tensorflow.compat.v1 as tf
-
-tf.compat.v1.disable_eager_execution()
+try:
+  import tensorflow.compat.v1 as tf
+  tf.compat.v1.disable_eager_execution()
+except:
+  import tensorflow as tf
 
 SOURCE_URL = 'http://yann.lecun.com/exdb/mnist/'
 WORK_DIRECTORY = 'data'
